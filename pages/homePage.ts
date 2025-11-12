@@ -1,5 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
-import { HomePageLocators } from "../factory/HomePage";
+import { HomePageLocators } from "../factory/HomePageLocators";
 
 export class HomePage {
   readonly page: Page;
@@ -11,6 +11,9 @@ export class HomePage {
   readonly navigationBar: Locator;
   readonly tradeNationLogo: Locator;
   readonly signupLoginButton: Locator;
+
+  private static readonly COOKIES_POLICY_TEXT =
+    "We use Cookies to improve your experience on our website. Cookies tell us which parts of the site you visit, help us display relevant ads (on our site and others), and give us insights into your behaviour. See our";
 
   constructor(page: Page) {
     const Home = HomePageLocators.HOME_PAGE;
@@ -26,24 +29,35 @@ export class HomePage {
     this.signupLoginButton = page.locator(Home.SIGNUP_LOGIN_BUTTON);
   }
 
-  async acceptCookies() {
+  async acceptCookiesIfVisible() {
     if (await this.cookiesBanner.isVisible({ timeout: 10000 })) {
       await expect(
         this.cookiesPolicy,
         "Cookies policy not visible!"
       ).toBeVisible();
+      await expect(this.cookiesPolicy).toContainText(
+        HomePage.COOKIES_POLICY_TEXT
+      );
+
       await expect(
         this.cookiesPolicyURL,
         "Cookies policy URL not visible!"
       ).toBeVisible();
+      await expect(this.cookiesPolicyURL).toContainText("cookie policy");
+
       await expect(
         this.cookiesSettingsButton,
         "Cookies settings buttons not visible!"
       ).toBeVisible();
+      await expect(this.cookiesSettingsButton).toContainText("Cookie settings");
+
       await expect(
         this.cookiesAcceptButton,
         "Accept all cookies button not visible!"
       ).toBeVisible();
+      await expect(this.cookiesAcceptButton).toContainText(
+        "Accept all cookies"
+      );
 
       await this.cookiesAcceptButton.click();
       await expect(this.cookiesBanner).not.toBeVisible();

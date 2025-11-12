@@ -6,7 +6,7 @@ test.describe("Trade Nation Markets Page", () => {
     "Test 1 - Trade Nation Home Page",
     async ({ commonUtils, marketPage, homePage }) => {
       await commonUtils.goTo("https://tradenation.com/markets/#forex");
-      await homePage.acceptCookies();
+      await homePage.acceptCookiesIfVisible();
       await marketPage.verifyForexPage();
       await homePage.clickTradeNationLogo();
       await homePage.verifyHomePageTitle();

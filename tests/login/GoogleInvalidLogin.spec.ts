@@ -11,8 +11,7 @@ test.describe("Trade Nation Login Page", () => {
       await loginPage.verifySignupPage();
       await loginPage.clickLoginHere();
       await loginPage.verifyLoginPage();
-      await loginPage.loginWithGoogle("shengyuan1103@gmail.com");
-      await commonUtils.captureScreenshot();
+      await loginPage.loginWithGoogle("shengyuantest1290@gmail.com");
     }
   );
 });

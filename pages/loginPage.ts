@@ -107,7 +107,7 @@ export class LoginPage {
     await this.page.waitForLoadState("domcontentloaded", { timeout: 30000 });
 
     await this.page.waitForTimeout(10000);
-    
+
     await expect(this.googleHeadingText).toBeVisible();
     await expect(this.googleHeadingText).toContainText("Welcome");
 
@@ -124,6 +124,11 @@ export class LoginPage {
     await expect(this.invalidPasswordError).toContainText(
       LoginPage.INVALID_PASSWORD_ERROR
     );
+
+    const getCurrentErrorMessage = await this.getText(
+      this.invalidPasswordError
+    );
+    console.log(`Displayed validation message: ${getCurrentErrorMessage}`);
   }
 
   private async inputEmail(email: string) {
@@ -134,5 +139,9 @@ export class LoginPage {
   private async inputPassword(password: string) {
     await expect(this.googlePasswordInput).toBeVisible();
     await this.googlePasswordInput.fill(password);
+  }
+
+  private async getText(locator: Locator): Promise<string> {
+    return (await locator.textContent()) ?? "";
   }
 }

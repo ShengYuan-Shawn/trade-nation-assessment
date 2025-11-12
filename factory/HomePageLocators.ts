@@ -7,6 +7,7 @@ export class HomePageLocators {
     COOKIES_ACCEPTED_BUTTON: "#onetrust-accept-btn-handler",
     NAVIGATION_BAR: "[data-testid='header']",
     TRADE_NATION_LOGO: "[data-testid='logo']",
-    SIGNUP_LOGIN_BUTTON: ".cc-button-cta",
+    SIGNUP_LOGIN_BUTTON:
+      "//div[contains(@class, 'e1fz6aqz14')]/following-sibling::a[contains(@id, 'cc-button-cta')]",
   } as const;
 }

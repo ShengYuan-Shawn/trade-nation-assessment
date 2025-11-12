@@ -71,7 +71,7 @@ export class HomePage {
     await Promise.all([
       this.page.waitForURL("https://tradenation.com/", {
         waitUntil: "networkidle",
-        timeout: 15000,
+        timeout: 30000,
       }),
       this.tradeNationLogo.click(),
     ]);
@@ -85,5 +85,24 @@ export class HomePage {
     expect(pageTitle).toContain("Trade Nation – Low-Cost CFD and Forex Broker");
 
     console.log("Current Page Title: " + pageTitle);
+  }
+
+  async clickSignupButton() {
+    await expect(this.navigationBar, "Nav-bar not visible!").toBeVisible();
+    await expect(
+      this.signupLoginButton,
+      "Signup / Login button not visible!"
+    ).toBeVisible();
+
+    await Promise.all([
+      this.page.waitForURL("https://tradenation.com/signup/welcome", {
+        waitUntil: "networkidle",
+        timeout: 30000,
+      }),
+      this.signupLoginButton.click(),
+    ]);
+
+    const currentURL = this.page.url();
+    expect(currentURL).toBe("https://tradenation.com/signup/welcome");
   }
 }

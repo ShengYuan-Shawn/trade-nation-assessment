@@ -10,7 +10,7 @@ export class CommonUtils {
   async goTo(url: string) {
     await this.page.goto(url, {
       waitUntil: "networkidle",
-      timeout: 15000,
+      timeout: 30000,
     });
   }
 

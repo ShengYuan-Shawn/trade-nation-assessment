@@ -84,7 +84,7 @@ export class HomePage {
     const pageTitle = await this.page.title();
     expect(pageTitle).toContain("Trade Nation – Low-Cost CFD and Forex Broker");
 
-    console.log("Current Page Title: " + pageTitle);
+    console.log(`Current Page Title: ${pageTitle}`);
   }
 
   async clickSignupButton() {
@@ -96,7 +96,7 @@ export class HomePage {
 
     await Promise.all([
       this.page.waitForURL("https://tradenation.com/signup/welcome", {
-        waitUntil: "networkidle",
+        waitUntil: "domcontentloaded",
         timeout: 30000,
       }),
       this.signupLoginButton.click(),

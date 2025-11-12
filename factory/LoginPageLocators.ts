@@ -16,6 +16,6 @@ export class LoginPageLocators {
     EMAIL_NEXT_BUTTON: "#identifierNext",
     GOOGLE_PASSWORD_FIELD: "input[name='Passwd']",
     PASSWORD_NEXT_BUTTON: "#passwordNext",
-    INVALID_PASSWORD_MESSAGE: "c0",
+    INVALID_PASSWORD_MESSAGE: "#c0",
   } as const;
 }

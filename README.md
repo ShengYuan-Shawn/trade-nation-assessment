@@ -6,6 +6,12 @@ This repository contains a comprehensive automated testing framework for the Tra
 
 ---
 
+## Running Test Through GitHub Actions
+1. Navigate to https://github.com/ShengYuan-Shawn/trade-nation-assessment/actions/workflows/playwright.yml
+2. Select 'Run Workflow'
+3. Click on 'Run Workflow'
+4. Monitor test runs
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed on your system:

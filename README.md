@@ -5,6 +5,9 @@ Automated test suite for Trade Nation's web application using Playwright with Ty
 This repository contains a comprehensive automated testing framework for the Trade Nation platform. The tests are built using Playwright, a modern cross-browser testing library, combined with TypeScript for type safety and improved maintainability.
 
 ---
+## Results
+![Test Results](image.png)
+
 
 ## Running Test Through GitHub Actions
 1. Navigate to https://github.com/ShengYuan-Shawn/trade-nation-assessment/actions/workflows/playwright.yml
